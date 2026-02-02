@@ -3,65 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ding Yushu | Academic Home</title>
+    <title>Ding Yushu - Google Scholar Profile</title>
     <style>
+        /* 全局样式：保留了您喜欢的科技蓝渐变 */
         body {
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    /* 这是一个淡蓝色的渐变，很适合工程学科 */
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh; /* 确保背景铺满全屏 */
-}
-        header { text-align: center; padding: 50px 0; border-bottom: 1px solid #eee; }
-        h1 { margin: 0; color: #2c3e50; }
-        .subtitle { color: #7f8c8d; font-size: 1.2em; margin-top: 10px; }
-        .section { margin: 40px 0; }
-        h2 { color: #2980b9; border-left: 5px solid #2980b9; padding-left: 15px; }
-        ul { list-style-type: square; }
-        li { margin-bottom: 10px; }
-        .contact-btn { display: inline-block; background: #2980b9; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-        .contact-btn:hover { background: #3498db; }
-        footer { text-align: center; margin-top: 50px; font-size: 0.8em; color: #aaa; }
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* 核心容器：模拟一张白纸卡片 */
+        .scholar-container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; /* 使用弹性布局实现左右分栏 */
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* --- 左侧栏：个人信息 & 研究方向 --- */
+        .sidebar {
+            flex: 1; /* 占比 1份 */
+            min-width: 250px;
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            border-radius: 50%; /* 圆形头像 */
+            margin-bottom: 20px;
+            background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'); /* 暂时用Github图标占位，可换 */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .name { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .title { margin-bottom: 5px; color: #333; }
+        .affiliation { color: #555; font-style: italic; margin-bottom: 15px; }
+        
+        .email-verified { 
+            font-size: 13px; color: #777; margin-bottom: 20px; 
+            border-bottom: 1px solid #eee; padding-bottom: 15px;
+        }
+
+        .section-header { font-size: 14px; font-weight: bold; color: #777; margin-bottom: 10px; text-transform: uppercase;}
+
+        .interest-tag {
+            display: inline-block;
+            color: #1a0dab; /* 谷歌学术蓝 */
+            text-decoration: none;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .interest-tag:hover { text-decoration: underline; }
+        .interest-tag::after { content: ", "; color: #333; }
+        .interest-tag:last-child::after { content: ""; }
+
+        /* --- 右侧栏：论文列表 & 英语水平 --- */
+        .main-content {
+            flex: 2; /* 占比 2份，更宽 */
+        }
+
+        /* 论文样式 */
+        .paper-item { margin-bottom: 25px; }
+        .paper-title { 
+            display: block; 
+            font-size: 18px; 
+            color: #1a0dab; /* 谷歌学术蓝 */
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        .paper-title:hover { text-decoration: underline; color: #1a0dab; }
+        .paper-authors { color: #006621; font-size: 14px; margin: 4px 0; }
+        .paper-journal { color: #545454; font-size: 14px; }
+        .paper-abstract { font-size: 13px; color: #666; margin-top: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* 英语水平/技能区 */
+        .skills-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .skill-badge {
+            background: #f1f3f4;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .sidebar { border-right: none; padding-right: 0; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+            .scholar-container { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Ding Yushu </h1>
-    <div class="subtitle">Graduate Student @ USST | Civil Engineering & Rock Mechanics</div>
-    <a href="mailto:contact@dingyushu.me" class="contact-btn">Email Me</a>
-</header>
+<div class="scholar-container">
+    
+    <div class="sidebar">
+        <div class="profile-photo"></div> <div class="name">Ding Yushu (丁玉书)</div>
+        
+        <div class="title">Graduate Student (M.S. Candidate)</div>
+        <div class="affiliation">
+            Civil Engineering & Rock Mechanics<br>
+            University of Shanghai for Science and Technology
+        </div>
+        
+        <div class="email-verified">
+            Shanghai, China<br>
+            Verified email at <b>dingyushu.me</b>
+        </div>
 
-<div class="section">
-    <h2>About Me </h2>
-    <p>a graduate student at the University of Shanghai for Science and Technology. My research focuses on <strong>Rock Creep Mechanics</strong>, and I am passionate about integrating <strong>Computer Science (Python, AI)</strong> into traditional civil engineering research.</p>
+        <div class="section-header">Research Interests</div>
+        <div>
+            <a href="#" class="interest-tag">Rock Mechanics</a>
+            <a href="#" class="interest-tag">Rock Creep Behavior</a>
+            <a href="#" class="interest-tag">Deep Learning (AI)</a>
+            <a href="#" class="interest-tag">Python & Data Analysis</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="section-header" style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+            Selected Publications & Projects
+        </div>
+
+        <div class="paper-item">
+            <a href="#" class="paper-title">Experimental study on creep behavior of Shanghai soft clay modified by Xanthan Gum</a>
+            <div class="paper-authors"><b>Y Ding</b>, Supervisor Name, et al.</div>
+            <div class="paper-journal">Journal of Rock Mechanics and Geotechnical Engineering (In Prep), 2026</div>
+            <div class="paper-abstract">
+                This study investigates the effect of Xanthan Gum biopolymer on the long-term creep behavior of Shanghai clay. Through a series of triaxial creep tests...
+            </div>
+        </div>
+
+        <div class="paper-item">
+            <a href="#" class="paper-title">Application of LSTM Neural Networks in Predicting Rock Creep Deformation</a>
+            <div class="paper-authors"><b>Y Ding</b>, Collaborator Name</div>
+            <div class="paper-journal">Computers and Geotechnics (Draft), 2025</div>
+            <div class="paper-abstract">
+                A deep learning approach using Long Short-Term Memory (LSTM) networks is proposed to model and predict the non-linear creep strain of sedimentary rocks...
+            </div>
+        </div>
+
+        <div class="paper-item">
+            <a href="https://github.com/YourUsername" class="paper-title">[Software] PyRock: A Python Tool for Analyzing Triaxial Creep Test Data</a>
+            <div class="paper-authors"><b>Y Ding</b></div>
+            <div class="paper-journal">GitHub Repository, 2025</div>
+            <div class="paper-abstract">
+                An open-source Python library designed to automate the processing of raw data from rock mechanics laboratory equipment, featuring automatic graph plotting and parameter extraction.
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <div class="section-header">Languages & Certifications</div>
+            <span class="skill-badge">English: CET-6</span>
+            <span class="skill-badge">Chinese: Native</span>
+            <span class="skill-badge">GitHub Student Developer</span>
+        </div>
+
+    </div>
+
 </div>
-
-<div class="section">
-    <h2>Research Interests </h2>
-    <ul>
-        <li><strong>Rock Mechanics:</strong> Creep behavior analysis and constitutive modeling.</li>
-        <li><strong>Computational Mechanics:</strong> Numerical simulation using Python.</li>
-        <li><strong>Deep Learning:</strong> Applying LLMs and Neural Networks to geotechnical engineering.</li>
-    </ul>
-</div>
-
-<div class="section">
-    <h2>Technical Skills </h2>
-    <ul>
-        <li><strong>Programming:</strong> Python (Pandas, PyTorch), MATLAB</li>
-        <li><strong>Tools:</strong> GitHub, Linux/VPS Management, Docker</li>
-        <li><strong>Languages:</strong> Chinese (Native), English (CET-4)</li>
-    </ul>
-</div>
-
-<footer>
-    <p>&copy; 2026 Ding Yushu. Hosted on GitHub Pages & Dingyushu.me</p>
-</footer>
 
 </body>
 </html>
