@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ding Yushu | Researcher Profile</title>
     <style>
-        /* 全局背景：保持科技蓝渐变 */
+        /* --- 全局样式：保持您喜欢的科技蓝渐变背景 --- */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
@@ -16,9 +16,9 @@
             color: #333;
         }
 
-        /* 主容器：改为单栏，上下结构，类似A4纸居中 */
+        /* --- 主容器：A4纸质感，垂直流布局 --- */
         .container {
-            max-width: 800px; /* 限制宽度，阅读体验最佳 */
+            max-width: 800px;
             margin: 40px auto;
             background: #fff;
             padding: 50px;
@@ -26,9 +26,9 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* --- 第一部分：个人信息头部 (Header) --- */
+        /* --- 头部信息 (Header) --- */
         .header {
-            text-align: center; /* 居中显示 */
+            text-align: center;
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 30px;
             margin-bottom: 30px;
@@ -40,7 +40,8 @@
             border-radius: 50%;
             background-color: #ddd;
             margin: 0 auto 20px;
-            background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'); /* 记得以后换成自己的照片 */
+            /* 提示：以后可以把这个链接换成您自己的证件照文件名，如 'photo.jpg' */
+            background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'); 
             background-size: cover;
             background-position: center;
             border: 4px solid #fff;
@@ -59,49 +60,56 @@
         .contact-info a { text-decoration: none; color: #1a0dab; }
         .contact-info a:hover { text-decoration: underline; }
 
-        /* --- 通用区块样式 --- */
+        /* --- 区块通用样式 --- */
         .section { margin-bottom: 40px; }
         
         .section-title {
             font-size: 20px;
             font-weight: 600;
             color: #2c3e50;
-            border-left: 5px solid #3498db; /* 左侧蓝条装饰 */
+            border-left: 5px solid #3498db; /* 经典的蓝色竖条装饰 */
             padding-left: 15px;
             margin-bottom: 20px;
         }
 
-        /* --- 研究方向标签 --- */
+        /* --- 标签样式 (Tags) --- */
         .tags-container { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
-            background-color: #e8f4fd;
-            color: #1a0dab;
+            background-color: #e8f4fd; /* 淡蓝色背景 */
+            color: #1a0dab;           /* 谷歌学术蓝文字 */
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
         }
 
-        /* --- 论文列表样式 --- */
+        /* --- 论文列表样式 (Paper Item) --- */
         .paper-item {
             margin-bottom: 25px;
             padding-bottom: 25px;
-            border-bottom: 1px dashed #eee; /* 虚线分隔 */
+            border-bottom: 1px dashed #eee;
         }
         .paper-item:last-child { border-bottom: none; }
 
         .paper-title {
             font-size: 18px;
             font-weight: 600;
-            color: #1a0dab;
+            color: #1a0dab; /* 链接颜色 */
             text-decoration: none;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
         .paper-title:hover { text-decoration: underline; }
         
-        .paper-meta { font-size: 14px; color: #444; margin-bottom: 6px; }
-        .paper-abstract { font-size: 14px; color: #666; line-height: 1.5; }
+        .paper-meta { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.5; }
+        .paper-abstract { 
+            font-size: 14px; 
+            color: #666; 
+            line-height: 1.6; 
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 4px;
+        }
 
         /* 移动端适配 */
         @media (max-width: 600px) {
@@ -114,7 +122,8 @@
 <div class="container">
 
     <div class="header">
-        <div class="avatar"></div> <div class="name">Ding Yushu </div>
+        <div class="avatar"></div>
+        <div class="name">Ding Yushu </div>
         <div class="title">Graduate Student in Civil and Hydraulic Engineering</div>
         <div class="dept">University of Shanghai for Science and Technology (USST)</div>
         <div class="contact-info">
@@ -126,39 +135,43 @@
     <div class="section">
         <div class="section-title">Research Interests</div>
         <div class="tags-container">
-            <span class="tag">Rock Creep Behavior </span>
-            <span class="tag">Soil Improvement </span>
+            <span class="tag">Deep Excavation </span>
+            <span class="tag">Diaphragm Wall </span>
+            <span class="tag">Numerical Simulation </span>
+            <span class="tag">Rock Creep </span>
             <span class="tag">Deep Learning </span>
-            <span class="tag">LLM Fine-tuning </span>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title">Selected Publications & Projects</div>
+        <div class="section-title">Publications</div>
 
         <div class="paper-item">
-            <a href="#" class="paper-title">Prediction of Rock Creep Behavior using Fine-tuned Large Language Models</a>
-            <div class="paper-meta"><b>Y Ding</b>, Supervisor Name. <i>Computers and Geotechnics (In Preparation), 2026</i></div>
+            <a href="https://sjtechnology.org/index.php/ojs/article/view/265" target="_blank" class="paper-title">
+                Numerical Analysis of Deformation and Mechanical Characteristics of Circular Suspended Footing Diaphragm Wall with Deep Tunnel
+            </a>
+            <div class="paper-meta">
+                D Zhang, <b>Y Ding</b>, K Jiang, B Wang, N Li.<br>
+                <i>Scientific Journal of Technology 7 (11), 196-208, 2025</i>
+            </div>
             <div class="paper-abstract">
-                This research explores the application of fine-tuned LLMs and LSTM neural networks to predict the long-term creep deformation of sedimentary rocks, significantly improving prediction accuracy compared to traditional constitutive models.
+                <b>Abstract:</b> Based on a circular shaft pit in a water diversion project, this study employs 3D numerical simulations to analyze surface settlement, diaphragm wall deformation, and internal forces under varying rock-socketed depths. The results provide a quantitative basis for optimizing support structures in soil-rock combination strata.
             </div>
         </div>
 
         <div class="paper-item">
-            <a href="#" class="paper-title">Experimental Study on Mechanical Properties of Shanghai Soft Clay Improved by Xanthan Gum</a>
-            <div class="paper-meta"><b>Y Ding</b>, Co-author Name. <i>Journal of Rock Mechanics and Geotechnical Engineering (Draft), 2025</i></div>
+            <span class="paper-title" style="color:#333; cursor: default;">
+                [Work in Progress] Application of LSTM Neural Networks in Predicting Creep Behavior of Soft Rock
+            </span>
+            <div class="paper-meta">
+                <b>Y Ding</b>. <br>
+                <i>Draft / GitHub Project, 2026</i>
+            </div>
             <div class="paper-abstract">
-                Investigated the shear strength and consolidation characteristics of Shanghai soft clay treated with eco-friendly Xanthan Gum biopolymer through a series of triaxial tests.
+                Developing a Python-based deep learning framework to predict long-term rock deformation, aiming to integrate traditional constitutive models with data-driven algorithms.
             </div>
         </div>
 
-        <div class="paper-item">
-            <a href="https://github.com/YourUsername" class="paper-title">[Tool] PyGeo-Creep: A Python Library for Creep Data Analysis</a>
-            <div class="paper-meta"><b>Y Ding</b>. <i>GitHub Open Source Project, 2025</i></div>
-            <div class="paper-abstract">
-                An open-source Python toolkit designed for processing triaxial creep test data, capable of automatic curve fitting and parameter identification using deep learning algorithms.
-            </div>
-        </div>
     </div>
 
 </div>
